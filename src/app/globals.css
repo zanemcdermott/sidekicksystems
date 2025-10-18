@@ -1,19 +1,23 @@
 @import "tailwindcss";
 
-@theme {
+:root {
   /* Dark UI neutrals */
-  --color-bg: #0b0a0c;
+  --color-bg: #0b0d11;
+  --color-surface: #111318;
   --color-bg-2: #141217;
   --color-bg-3: #1a1820;
 
-  --color-text: #F4F2F7;
+  --color-text: #e9edf2;
   --color-text-muted: #C9C5D3;
+  --color-muted: #a3adba;
   --color-line: #2a2733;
 
   /* Brand gradient stops */
   --color-brand-magenta: #FF1E8C;
-  --color-brand-purple:  #D244F8;
-  --color-brand-violet:  #3C2EFF;
+  --color-brand-purple: #D244F8;
+  --color-brand-violet: #3C2EFF;
+  --color-accent-1: #60a5fa;
+  --color-accent-2: #22d3ee;
 
   /* Radii & shadow scale */
   --radius-xl: 18px;
@@ -22,42 +26,12 @@
 
   /* Container max width */
   --max-w-container: 1200px;
-}
 
-:root {
-  --color-bg: #0b0d11;          /* near-black */
-  --color-surface: #111318;     /* card bg */
-  --color-text: #e9edf2;        /* primary text */
-  --color-muted: #a3adba;       /* secondary text */
-  --color-accent-1: #60a5fa;    /* blue -> cyan gradient for CTAs */
-  --color-accent-2: #22d3ee;
-
-  --shadow-soft: 0 8px 30px rgba(0,0,0,.25);
-  --radius-xl: 16px;
-  --radius-2xl: 24px;
-}
-
-/* optional utility for gradient text/buttons */
-.brand-gradient {
-  background: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-
-@theme inline {
+  /* Background/Foreground */
+  --background: #0a0a0a;
+  --foreground: #ededed;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -137,4 +111,84 @@ body::after {
     animation: trust-marquee 26s linear infinite;
     will-change: transform;
   }
+
+  /* Font utility classes */
+  .space {
+    font-family: var(--font-space), ui-sans-serif, system-ui, sans-serif;
+}
+}
+
+/* Gradient mesh animation */
+@keyframes gradient-shift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 20s ease-in-out infinite;
+}
+
+/* Grid flow animation */
+@keyframes grid-flow {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+.animate-grid-flow {
+  animation: grid-flow 20s linear infinite;
+}
+
+/* Gradient border morphing */
+@keyframes gradient-border {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-border {
+  background-size: 200% 200%;
+  animation: gradient-border 3s ease infinite;
+}
+
+/* Text shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 8s linear infinite;
+}
+
+/* Mobile spotlight pulse */
+@keyframes pulse-spotlight {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.animate-pulse-spotlight {
+  animation: pulse-spotlight 4s ease-in-out infinite;
 }
