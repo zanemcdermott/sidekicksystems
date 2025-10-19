@@ -1,13 +1,15 @@
 import Hero from "@/components/Hero";
 import TrustStrip from "@/components/TrustStrip";
-import ServiceCards from "@/components/ServiceCards";
+import WhatWeDo from "@/components/WhatWeDo";
+import FAQ from "@/components/FAQ";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <TrustStrip />
-      <ServiceCards />
+      <WhatWeDo />
+      <FAQ />
     </>
   );
 }

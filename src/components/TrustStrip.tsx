@@ -1,13 +1,16 @@
 const logos = [
-  { src: "/logo/vscode.svg",      alt: "Visual Studio Code" },
-  { src: "/logo/github.svg",      alt: "GitHub" },
-  { src: "/logo/vercel.svg",      alt: "Vercel" },
-  { src: "/logo/nextjs.svg",      alt: "Next.js" },
-  { src: "/logo/cloudflare.svg",  alt: "Cloudflare" },
-  { src: "/logo/openai.svg",      alt: "OpenAI" },
-  { src: "/logo/n8n.svg",         alt: "n8n" },
-  { src: "/logo/tailwindcss.svg", alt: "Tailwind CSS" },
-  { src: "/logo/typescript.svg",  alt: "TypeScript" },
+  { src: "/logo/vscode.svg",       alt: "Visual Studio Code" },
+  { src: "/logo/github.svg",       alt: "GitHub" },
+  { src: "/logo/vercel.svg",       alt: "Vercel" },
+  { src: "/logo/nextjs.svg",       alt: "Next.js" },
+  { src: "/logo/cloudflare.svg",   alt: "Cloudflare" },
+  { src: "/logo/openai.svg",       alt: "OpenAI" },
+  { src: "/logo/claude.svg",       alt: "Claude" },
+  { src: "/logo/twilio.svg",       alt: "Twilio" },
+  { src: "/logo/elevenlabs.svg",   alt: "ElevenLabs" },
+  { src: "/logo/n8n.svg",          alt: "n8n" },
+  { src: "/logo/tailwindcss.svg",  alt: "Tailwind CSS" },
+  { src: "/logo/typescript.svg",   alt: "TypeScript" },
 ];
 
 const marqueeLogos = [...logos, ...logos];
@@ -45,7 +48,7 @@ export default function TrustStrip() {
             {marqueeLogos.map((logo, index) => (
               <div
                 key={`${logo.alt}-${index}`}
-                className="flex h-16 min-w-[190px] items-center justify-center rounded-2xl border border-white/15 bg-white/90 px-7 py-3 shadow-[0_12px_30px_rgba(15,15,38,0.12)]"
+                className="group flex h-16 min-w-[190px] items-center justify-center rounded-2xl border border-white/15 bg-white px-7 py-3 shadow-[0_12px_30px_rgba(15,15,38,0.12)] hover:shadow-[0_20px_40px_rgba(15,15,38,0.18)] hover:border-white/25 transition-all duration-300"
               >
                 <img
                   src={logo.src}
