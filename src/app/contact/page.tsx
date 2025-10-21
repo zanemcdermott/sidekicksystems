@@ -3,62 +3,10 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-const countryCodes = [
-  { code: "+61", country: "AU" },
-  { code: "+1", country: "US" },
-  { code: "+44", country: "GB" },
-  { code: "+64", country: "NZ" },
-  { code: "+81", country: "JP" },
-  { code: "+86", country: "CN" },
-  { code: "+91", country: "IN" },
-  { code: "+65", country: "SG" },
-  { code: "+49", country: "DE" },
-  { code: "+33", country: "FR" },
-  { code: "+39", country: "IT" },
-  { code: "+34", country: "ES" },
-  { code: "+31", country: "NL" },
-  { code: "+41", country: "CH" },
-  { code: "+46", country: "SE" },
-  { code: "+47", country: "NO" },
-  { code: "+45", country: "DK" },
-  { code: "+358", country: "FI" },
-  { code: "+32", country: "BE" },
-  { code: "+43", country: "AT" },
-  { code: "+353", country: "IE" },
-  { code: "+351", country: "PT" },
-  { code: "+30", country: "GR" },
-  { code: "+48", country: "PL" },
-  { code: "+420", country: "CZ" },
-  { code: "+7", country: "RU" },
-  { code: "+380", country: "UA" },
-  { code: "+90", country: "TR" },
-  { code: "+971", country: "AE" },
-  { code: "+966", country: "SA" },
-  { code: "+972", country: "IL" },
-  { code: "+27", country: "ZA" },
-  { code: "+234", country: "NG" },
-  { code: "+254", country: "KE" },
-  { code: "+20", country: "EG" },
-  { code: "+55", country: "BR" },
-  { code: "+52", country: "MX" },
-  { code: "+54", country: "AR" },
-  { code: "+56", country: "CL" },
-  { code: "+57", country: "CO" },
-  { code: "+82", country: "KR" },
-  { code: "+66", country: "TH" },
-  { code: "+84", country: "VN" },
-  { code: "+60", country: "MY" },
-  { code: "+62", country: "ID" },
-  { code: "+63", country: "PH" },
-  { code: "+852", country: "HK" },
-  { code: "+886", country: "TW" },
-];
-
 export default function ContactPage() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
-    countryCode: "+61",
     phone: "",
     businessName: "",
     businessType: "",
@@ -178,27 +126,14 @@ export default function ContactPage() {
                 <label htmlFor="phone" className="block text-sm font-medium mb-2">
                   Phone (Optional)
                 </label>
-                <div className="flex gap-3">
-                  <select
-                    value={formState.countryCode}
-                    onChange={(e) => setFormState({ ...formState, countryCode: e.target.value })}
-                    className="w-[110px] flex-shrink-0 px-3 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-1)]/50 focus:border-transparent transition-all text-sm text-white [&>option]:bg-neutral-900 [&>option]:text-white"
-                  >
-                    {countryCodes.map((cc) => (
-                      <option key={cc.code} value={cc.code}>
-                        {cc.country} {cc.code}
-                      </option>
-                    ))}
-                  </select>
-                  <input
-                    type="tel"
-                    id="phone"
-                    value={formState.phone}
-                    onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                    className="flex-1 min-w-0 px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-1)]/50 focus:border-transparent transition-all"
-                    placeholder="400 000 000"
-                  />
-                </div>
+                <input
+                  type="tel"
+                  id="phone"
+                  value={formState.phone}
+                  onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-1)]/50 focus:border-transparent transition-all"
+                  placeholder="+61 400 000 000"
+                />
               </div>
               <div>
                 <label htmlFor="businessName" className="block text-sm font-medium mb-2">
