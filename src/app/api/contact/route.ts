@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization - only create when needed (at runtime, not build time)
+function getResendClient() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 // Simple in-memory rate limiting (consider Redis for production with multiple instances)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -91,6 +94,7 @@ export async function POST(request: NextRequest) {
     const fromEmail = process.env.FROM_EMAIL || 'Sidekick Systems <onboarding@resend.dev>';
 
     // Send email using Resend
+    const resend = getResendClient();
     const { data, error } = await resend.emails.send({
       from: fromEmail,
       to: [contactEmail],
