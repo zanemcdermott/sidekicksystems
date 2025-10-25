@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Inter, DM_Serif_Display, Space_Grotesk } from "next/font/google";
 import MobileNav from "@/components/MobileNav";
 
@@ -29,9 +30,6 @@ export const metadata: Metadata = {
   publisher: "Sidekick Systems",
   alternates: {
     canonical: 'https://sidekicksystems.com',
-  },
-  verification: {
-    google: 'your-google-verification-code',
   },
   viewport: {
     width: 'device-width',
@@ -128,15 +126,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.className} ${dm.variable} ${spaceGrotesk.variable} bg-bg text-text antialiased overflow-x-hidden`}>
+      <body className={`${inter.className} ${dm.variable} ${spaceGrotesk.variable} bg-bg text-text antialiased`}>
         {/* Header */}
         <header className="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/70 backdrop-blur">
           <nav className="container flex items-center justify-between py-4">
             <Link href="/" className="flex items-center gap-3 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-neutral-950 rounded-lg transition-all duration-200">
-              <span
-                className="inline-block h-7 w-7 rounded-full"
-                style={{ background: "linear-gradient(90deg,#FF1E8C,#D244F8,#3C2EFF)" }}
-                aria-hidden
+              <Image
+                src="/logo.png"
+                alt="Sidekick Systems Logo"
+                width={28}
+                height={28}
+                className="h-7 w-7"
+                priority
               />
               <span className="font-[family-name:var(--font-space)] text-lg font-semibold tracking-tight">
                 SIDEKICK <span className="text-white/70">SYSTEMS</span>
@@ -162,8 +163,80 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Footer */}
         <footer className="border-t border-white/10">
-          <div className="container py-8 text-center text-sm text-white/60 font-[family-name:var(--font-space)]">
-            © {new Date().getFullYear()} Sidekick Systems — Launch • Automate • Intelligence
+          <div className="container py-12 md:py-16">
+            {/* Footer Navigation */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+              {/* Services */}
+              <div>
+                <h3 className="font-[family-name:var(--font-space)] font-semibold text-sm uppercase tracking-wider mb-4 text-white/90">
+                  Services
+                </h3>
+                <ul className="space-y-3 text-sm text-white/60 font-[family-name:var(--font-space)]">
+                  <li>
+                    <Link
+                      href="/launch"
+                      className="hover:text-white transition-colors duration-200"
+                    >
+                      Launch
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/automate"
+                      className="hover:text-white transition-colors duration-200"
+                    >
+                      Automate
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/intelligence"
+                      className="hover:text-white transition-colors duration-200"
+                    >
+                      Intelligence
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Company */}
+              <div>
+                <h3 className="font-[family-name:var(--font-space)] font-semibold text-sm uppercase tracking-wider mb-4 text-white/90">
+                  Company
+                </h3>
+                <ul className="space-y-3 text-sm text-white/60 font-[family-name:var(--font-space)]">
+                  <li>
+                    <Link
+                      href="/"
+                      className="hover:text-white transition-colors duration-200"
+                    >
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/resources"
+                      className="hover:text-white transition-colors duration-200"
+                    >
+                      Resources
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/contact"
+                      className="hover:text-white transition-colors duration-200"
+                    >
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Copyright */}
+            <div className="pt-8 border-t border-white/10 text-center text-sm text-white/60 font-[family-name:var(--font-space)]">
+              © {new Date().getFullYear()} Sidekick Systems — Launch • Automate • Intelligence
+            </div>
           </div>
         </footer>
       </body>

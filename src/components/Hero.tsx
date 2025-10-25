@@ -1,60 +1,16 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const parallaxRef = useRef<HTMLDivElement | null>(null);
-  const shouldReduceMotion = useReducedMotion();
-
-  // Parallax effect for background image
-  useEffect(() => {
-    const section = sectionRef.current;
-    const target = parallaxRef.current;
-    if (!section || !target || shouldReduceMotion) return;
-
-    let rafId = 0;
-    const clamp = (v: number, min: number, max: number) => Math.max(min, Math.min(max, v));
-
-    const updateParallax = () => {
-      rafId = 0;
-      const rect = section.getBoundingClientRect();
-      const progress = rect.top / window.innerHeight;
-      const offset = clamp(progress * 64, -48, 48);
-      target.style.setProperty("--hero-parallax", `${offset}px`);
-    };
-
-    const onScroll = () => {
-      if (rafId) return;
-      rafId = requestAnimationFrame(updateParallax);
-    };
-
-    updateParallax();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", updateParallax);
-
-    return () => {
-      if (rafId) cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", updateParallax);
-    };
-  }, [shouldReduceMotion]);
-
   return (
     <section
-      ref={sectionRef}
       aria-label="Hero"
       className="relative left-1/2 flex w-screen -translate-x-1/2 -mt-14 md:-mt-16 min-h-[100dvh] md:min-h-[100vh] overflow-hidden"
     >
-      {/* Background image with parallax - OPTIMIZED: Single image */}
-      <div
-        ref={parallaxRef}
-        className="absolute inset-0 will-change-transform animate-in fade-in duration-700"
-        style={{ transform: "translate3d(0,var(--hero-parallax,0px),0)" }}
-      >
-        {/* Single optimized image for both mobile and desktop */}
+      {/* Static background image */}
+      <div className="absolute inset-0">
         <Image
           src="/hero/desk-landscape.png"
           alt="Desk with laptop and plants in a bright studio"
@@ -63,9 +19,7 @@ export default function Hero() {
           quality={90}
           className="object-cover"
           sizes="100vw"
-          style={{ 
-            objectPosition: 'center 40%' // Adjust this to frame the image nicely on mobile
-          }}
+          style={{ objectPosition: 'center 40%' }}
         />
       </div>
 

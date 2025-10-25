@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import ProblemStatement from "@/components/ProblemStatement";
 import WhatWeDo from "@/components/WhatWeDo";
+import PrintDesign from "@/components/PrintDesign";
 import TrustStrip from "@/components/TrustStrip";
 import HowWeWork from "@/components/HowWeWork";
 import CaseStudies from "@/components/CaseStudies";
@@ -15,6 +16,7 @@ export default function HomePage() {
       <Hero />
       <ProblemStatement />
       <WhatWeDo />
+      <PrintDesign />
       <TrustStrip />
       <HowWeWork />
       <CaseStudies />

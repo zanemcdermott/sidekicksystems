@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { ServiceSchema, BreadcrumbSchema } from "@/components/StructuredData";
 
 const processSteps = [
   {
@@ -571,6 +572,73 @@ export default function IntelligencePage() {
         </div>
       </section>
 
+      {/* Related Services */}
+      <section className="px-6 md:px-12 py-16 max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-12"
+        >
+          <h2 className="dm text-3xl md:text-4xl font-bold mb-4">Build a Complete Digital Ecosystem</h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+            AI is powerful, but it's even better when combined with a strong foundation.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-[var(--color-surface)]/60 to-[var(--color-surface)]/20 ring-1 ring-white/[0.06] rounded-xl p-6 hover:ring-white/[0.12] transition-all group"
+          >
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-white transition-colors">Launch</h3>
+                <p className="text-sm text-white/60">Give your AI a home</p>
+              </div>
+              <div className="text-3xl">🚀</div>
+            </div>
+            <p className="text-white/70 mb-4 text-sm leading-relaxed">
+              AI chatbots need a website. Dashboards need data sources. We build fast, conversion-optimized sites designed to integrate seamlessly with AI tools—giving your intelligence a professional platform.
+            </p>
+            <Link
+              href="/launch"
+              className="inline-flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
+            >
+              Explore Website Design
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-br from-[var(--color-surface)]/60 to-[var(--color-surface)]/20 ring-1 ring-white/[0.06] rounded-xl p-6 hover:ring-white/[0.12] transition-all group"
+          >
+            <div className="flex items-start justify-between mb-4">
+              <div>
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-white transition-colors">Automate</h3>
+                <p className="text-sm text-white/60">Let AI trigger actions</p>
+              </div>
+              <div className="text-3xl">🤖</div>
+            </div>
+            <p className="text-white/70 mb-4 text-sm leading-relaxed">
+              Combine AI insights with automation workflows. When your AI chatbot qualifies a lead, automatically add them to your CRM and trigger a follow-up sequence. Intelligence + automation = unstoppable.
+            </p>
+            <Link
+              href="/automate"
+              className="inline-flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
+            >
+              Explore Automation
+              <span className="group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="px-6 md:px-12 py-16 max-w-4xl mx-auto">
         <motion.div
@@ -608,6 +676,22 @@ export default function IntelligencePage() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-8"
+        >
+          <Link
+            href="/resources"
+            className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors group"
+          >
+            <span className="text-sm">Have more questions? Browse our complete</span>
+            <span className="font-semibold brand-gradient">FAQ & Resources</span>
+            <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
+          </Link>
+        </motion.div>
       </section>
 
       {/* CTA */}

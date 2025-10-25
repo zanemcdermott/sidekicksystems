@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -50,6 +51,22 @@ export default function FAQ() {
             <FAQItem key={i} faq={faq} index={i} />
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-8"
+        >
+          <Link
+            href="/resources"
+            className="inline-flex items-center gap-2 text-white/70 hover:text-white transition-colors group"
+          >
+            <span className="text-sm">Have more questions? Browse our complete</span>
+            <span className="font-semibold brand-gradient">FAQ & Resources</span>
+            <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

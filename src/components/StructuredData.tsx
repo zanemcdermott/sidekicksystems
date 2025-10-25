@@ -22,7 +22,6 @@ export function OrganizationSchema() {
       areaServed: "AU"
     },
     sameAs: [
-      "https://github.com/yourusername",
       // Add your social profiles when you have them
     ],
     serviceArea: {
@@ -171,16 +170,11 @@ export function LocalBusinessSchema() {
     image: "https://sidekicksystems.com/logo.png",
     "@id": "https://sidekicksystems.com",
     url: "https://sidekicksystems.com",
-    telephone: "", // Add when you have a business phone
     email: "hello@sidekicksystems.com",
     address: {
       "@type": "PostalAddress",
       addressCountry: "AU",
       addressRegion: "Queensland"
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      // Add when you have a physical address
     },
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
@@ -189,18 +183,14 @@ export function LocalBusinessSchema() {
         "Tuesday",
         "Wednesday",
         "Thursday",
-        "Friday"
+        "Friday",
+        "Saturday",
+        "Sunday"
       ],
       opens: "00:00",
       closes: "23:59"
     },
-    priceRange: "$$",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5",
-      reviewCount: "1"
-      // Update when you have real reviews
-    }
+    priceRange: "$$"
   };
 
   return (
