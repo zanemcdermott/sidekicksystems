@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ErrorBoundary } from "@/components/errorboundary";
-import { FormSkeleton } from "@/components/loadingskeletons";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { FormSkeleton } from "@/components/LoadingSkeletons";
 
 function ContactForm() {
   const [formState, setFormState] = useState({

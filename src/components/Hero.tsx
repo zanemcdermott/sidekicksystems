@@ -48,31 +48,24 @@ export default function Hero() {
       aria-label="Hero"
       className="relative left-1/2 flex w-screen -translate-x-1/2 -mt-14 md:-mt-16 min-h-[100dvh] md:min-h-[100vh] overflow-hidden"
     >
-      {/* Background image with parallax */}
+      {/* Background image with parallax - OPTIMIZED: Single image */}
       <div
         ref={parallaxRef}
         className="absolute inset-0 will-change-transform animate-in fade-in duration-700"
         style={{ transform: "translate3d(0,var(--hero-parallax,0px),0)" }}
       >
-        {/* Mobile image */}
-        <Image
-          src="/hero/desk.webp"
-          alt="Desk with laptop and plants in a bright studio"
-          fill
-          priority
-          quality={90}
-          className="object-cover object-center md:hidden"
-          sizes="100vw"
-        />
-        {/* Desktop image */}
+        {/* Single optimized image for both mobile and desktop */}
         <Image
           src="/hero/desk-landscape.png"
           alt="Desk with laptop and plants in a bright studio"
           fill
           priority
           quality={90}
-          className="object-cover object-center hidden md:block"
+          className="object-cover"
           sizes="100vw"
+          style={{ 
+            objectPosition: 'center 40%' // Adjust this to frame the image nicely on mobile
+          }}
         />
       </div>
 
