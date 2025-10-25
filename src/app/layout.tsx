@@ -17,6 +17,15 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["400", "500", "600", "700"]
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0b0d11' },
+  ],
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://sidekicksystems.com'),
   title: {
@@ -31,14 +40,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://sidekicksystems.com',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#0b0d11' },
-  ],
   manifest: '/manifest.json',
   openGraph: {
     type: "website",
