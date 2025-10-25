@@ -36,6 +36,18 @@ export default function MobileNav() {
     setOpen(false);
   }, [pathname]);
 
+  // Lock body scroll when menu is open (mobile UX improvement)
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
+
   return (
     <div ref={containerRef} className="relative md:hidden">
       <button

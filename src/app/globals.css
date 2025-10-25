@@ -105,6 +105,11 @@ header {
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;
   }
+
+  /* Prevent iOS input zoom - ensure 16px minimum font size */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
 }
 
 @layer utilities {
@@ -163,5 +168,24 @@ header {
 .animate-shimmer {
   background-size: 200% auto;
   animation: shimmer 8s linear infinite;
+}
+
+/* Respect user's reduced motion preference for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable specific animations */
+  .animate-shimmer,
+  .animate-gradient-border,
+  .trust-marquee {
+    animation: none !important;
+  }
 }
 

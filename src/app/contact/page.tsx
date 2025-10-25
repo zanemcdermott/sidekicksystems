@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
-import { FormSkeleton } from "@/components/LoadingSkeletons";
 
 function ContactForm() {
   const [formState, setFormState] = useState({
@@ -86,6 +85,7 @@ function ContactForm() {
             className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-1)]/50 focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             placeholder="John Doe"
             disabled={submitState === 'loading'}
+            autoComplete="name"
           />
         </div>
         <div>
@@ -101,6 +101,8 @@ function ContactForm() {
             className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-1)]/50 focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             placeholder="john@example.com"
             disabled={submitState === 'loading'}
+            autoComplete="email"
+            inputMode="email"
           />
         </div>
       </div>
@@ -130,6 +132,8 @@ function ContactForm() {
               className="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-1)]/50 focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
               placeholder="400 000 000"
               disabled={submitState === 'loading'}
+              autoComplete="tel"
+              inputMode="tel"
             />
           </div>
         </div>
@@ -176,6 +180,8 @@ function ContactForm() {
             className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-1)]/50 focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             placeholder="https://yourwebsite.com"
             disabled={submitState === 'loading'}
+            autoComplete="url"
+            inputMode="url"
           />
         </div>
       </div>
